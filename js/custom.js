@@ -69,7 +69,8 @@ $(document).ready(function(){
 	//CLONE NAME AND SOCIAL BUTTONS
 	////////////////
 	var socialIcons = $('#titleName, #socialIcons').clone();
-    socialIcons.children('img').css({'width':'45px','margin':'-4px 0px 0px 0px'});
+    socialIcons.children('img').css({'width': '52px', 'margin': '-8px 5px 0 20px'});
+    socialIcons.children('a').css({'margin': '0 0 11px 3px'});
     socialIcons.appendTo('#sticker');
 	
 	////////////////
