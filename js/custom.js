@@ -1,6 +1,6 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
-	////////////////	
+	////////////////
 	//VARIABLES
 	////////////////
 	var view = $(window),
@@ -11,34 +11,36 @@ $(document).ready(function(){
 	//SKILLS ANIMATION
 	////////////////
 	$('ul#skills').addClass("ready");
-	$('ul#skills li').each(function(){
+	$('ul#skills li').each(function() {
 		var i = $(this).index();
-		$(this).delay(100 * i).animate({right:"0%"},1000,function(){
+		$(this).delay(100 * i).animate({
+			right: "0%"
+		}, 1000, function() {
 			$(this).children('span').fadeIn(600);
-		});	
+		});
 	});
-		
+
 	////////////////
 	//PRETTYPHOTO
 	////////////////
 	$('a[data-rel]').each(function() {
-    	$(this).attr('rel', $(this).data('rel'));
+		$(this).attr('rel', $(this).data('rel'));
 	});
 	$("a[rel^='prettyPhoto']").prettyPhoto({
 		overlay_gallery: false,
 		social_tools: '',
 		deeplinking: false,
 		default_width: 500,
-		opacity:"1"
+		opacity: "1"
 	});
-	
+
 	////////////////
 	//FORM STUFF...
 	////////////////
-	$("#contactform #submit_btn").click(function() {  
-	  
-	    $("#contactform .input, #contactform textarea").removeClass('error');
-	    		
+	$("#contactform #submit_btn").click(function() {
+
+		$("#contactform .input, #contactform textarea").removeClass('error');
+
 		var name = $("#contactform input#name");
 		if (name.val() == "") {
 			name.addClass('error').focus();
@@ -46,69 +48,84 @@ $(document).ready(function(){
 		}
 		var email = $("#contactform input#email");
 		if (email.val() == "") {
-	      	email.addClass('error').focus();
-	     	return false;
-		}		
+			email.addClass('error').focus();
+			return false;
+		}
 		var message = $("#contactform textarea#message");
 		if (message.val() == "") {
-	      	message.addClass('error').focus();
-	     	return false;
+			message.addClass('error').focus();
+			return false;
 		}
 	});
-	
+
 	////////////////
 	//SUCCESSFUL MESSAGE ALERT
 	////////////////
-	if(window.location.hash == "#contact") {
-  		$('#contactform').slideUp(800,function(){
-  			$('#messageSent').fadeIn(800);
-  		});	
-  	}
-	
+	if (window.location.hash == "#contact") {
+		$('#contactform').slideUp(800, function() {
+			$('#messageSent').fadeIn(800);
+		});
+	}
+
 	////////////////
 	//CLONE NAME AND SOCIAL BUTTONS
 	////////////////
 	var socialIcons = $('#titleName, #socialIcons').clone();
-    socialIcons.children('img').css({'width': '52px', 'margin': '-8px 5px 0 20px'});
-    socialIcons.children('a').css({'margin': '0 0 11px 3px'});
-    socialIcons.appendTo('#sticker');
-	
+	socialIcons.children('img').css({
+		'width': '52px',
+		'margin': '-8px 5px 0 20px'
+	});
+	socialIcons.children('a').css({
+		'margin': '0 0 11px 3px'
+	});
+	socialIcons.appendTo('#sticker');
+
 	////////////////
 	//RESPONSIVE CHECK
 	///////////////
-	function responsive(){
-		if(view.width() < 820){
+	function responsive() {
+		if (view.width() < 820) {
 			body.addClass('respond');
 		} else {
 			body.removeClass('respond');
 		}
 	}
 	responsive();
-	
+
 	////////////////
 	//WINDOW SCROLL
 	////////////////
-	view.scroll(function(){
+	view.scroll(function() {
 		//SHOW/HIDE TOP PANEL
-		if(view.scrollTop() > 140){
-			$('#sticker').stop().animate({top:"0"},500);
+		if (view.scrollTop() > 140) {
+			$('#sticker').stop().animate({
+				top: "0"
+			}, 500);
 		} else {
-			$('#sticker').stop().animate({top:"-60px"},500);
+			$('#sticker').stop().animate({
+				top: "-60px"
+			}, 500);
 		}
-		
+
 		//PARALLAX BACKGROUND STUFF
 		var scrollPosition = $(window).scrollTop() * .25;
-		body.css({backgroundPosition:'0px -'+scrollPosition+'px'});
+		body.css({
+			backgroundPosition: '0px -' + scrollPosition + 'px'
+		});
 	});
-		
+
 	////////////////
 	//WINDOW RESIZE
 	///////////////
-	view.resize(function(){ responsive(); });
-	
-	////////////////	
+	view.resize(function() {
+		responsive();
+	});
+
+	////////////////
 	//WINDOW LOAD
 	////////////////
-	view.load(function(){ responsive(); });
-  	 
+	view.load(function() {
+		responsive();
+	});
+
 });
