@@ -1,5 +1,3 @@
-# ZYALLER - 个人简历
+# Resume
 
 > me.zyall.com
-
-个人简历！
